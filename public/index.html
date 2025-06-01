@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .user-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Usuarios</h2>
+    <div id="userList"></div>
+
+    <script>
+        const users = [
+            {
+                "id": 1,
+                "username": "luis",
+                "email": "user@mail.com",
+                "password": "123321"
+            },
+            {
+                "id": 2,
+                "username": "pedro",
+                "email": "pedro@gmail.com",
+                "password": "123321"
+            }
+        ];
+
+        function renderUsers(users) {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = ''; // Limpiar contenido previo
+
+            users.forEach(user => {
+                const userCard = document.createElement('div');
+                userCard.classList.add('user-card');
+                userCard.innerHTML = `
+                    <p><strong>ID:</strong> ${user.id}</p>
+                    <p><strong>Username:</strong> ${user.username}</p>
+                    <p><strong>Email:</strong> ${user.email}</p>
+                `;
+                userList.appendChild(userCard);
+            });
+        }
+
+        renderUsers(users);
+    </script>
+
+</body>
+</html>
